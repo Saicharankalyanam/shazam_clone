@@ -19,7 +19,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 model = SentenceTransformer("all-MiniLM-L6-v2", device=device)
 
 # Connect to ChromaDB
-client = chromadb.PersistentClient(path=r"C:\Users\Akhira kodam\streamlit_26\GenAI\Shazam\chroma_db")
+client = chromadb.PersistentClient(path=r"C:\Users\saicharan\streamlit_26\GenAI\Shazam\chroma_db")
 try:
     collection = client.get_collection("subtitle_chunks")
 except ValueError:
@@ -104,7 +104,7 @@ st.markdown(
 )
 
 if uploaded_file:
-    with st.spinner("🚀 Extracting audio & processing... Please wait."):
+    with st.spinner("🚀 Extracting audio & processing..."):
 
         # Audio to text extraction with progress bar
         query = extract_audio_text(uploaded_file)
